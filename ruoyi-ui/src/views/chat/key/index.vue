@@ -73,11 +73,10 @@
 
     <el-table v-loading="loading" :data="keyList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="ID" align="center" prop="id" />
+      <el-table-column label="KEY" align="center" prop="apiKey" />
       <el-table-column label="使用模型" align="center" prop="useModel" />
       <el-table-column label="总额度" align="center" prop="totalBalance" />
       <el-table-column label="剩余额度" align="center" prop="remainBalance" />
-      <el-table-column label="权重，权重高的优先执行" align="center" prop="weight" />
       <el-table-column label="状态" align="center" prop="status">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.sys_yes_no" :value="scope.row.status"/>
@@ -102,7 +101,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -132,7 +131,7 @@
         <el-form-item label="剩余额度" prop="remainBalance">
           <el-input v-model="form.remainBalance" placeholder="请输入剩余额度" />
         </el-form-item>
-        <el-form-item label="权重，权重高的优先执行" prop="weight">
+        <el-form-item label="权重" prop="weight">
           <el-input v-model="form.weight" placeholder="请输入权重，权重高的优先执行" />
         </el-form-item>
         <el-form-item label="状态" prop="status">
